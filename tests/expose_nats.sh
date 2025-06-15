@@ -1,0 +1,1 @@
+kubectl port-forward -n testing-dev svc/internal-logger-broker-nats-client 4222:4222
