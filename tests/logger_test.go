@@ -3,8 +3,8 @@ package tests
 import (
 	"bytes"
 	"context"
-	"corekitmdk.com/logger/v2/pkg/logger"
 	"fmt"
+	"github.com/CoreKitMDK/corekit-service-logger/v2/pkg/logger"
 	"io"
 	"os"
 	"strings"

@@ -2,8 +2,8 @@ package logger
 
 import (
 	"context"
-	"corekitmdk.com/logger/v2/internal/logger"
 	"fmt"
+	"github.com/CoreKitMDK/corekit-service-logger/v2/internal/logger"
 	"os"
 	"runtime"
 	"strings"

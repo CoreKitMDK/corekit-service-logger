@@ -1,7 +1,7 @@
 package tests
 
 import (
-	"corekitmdk.com/logger/v2/pkg/logger"
+	"github.com/CoreKitMDK/corekit-service-logger/v2/pkg/logger"
 	"testing"
 	"time"
 )
