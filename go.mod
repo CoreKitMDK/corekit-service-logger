@@ -1,4 +1,6 @@
-module corekitmdk.com/logger/v2
+module github.com/CoreKitMDK/corekit-service-logger/v2
+
+//module corekitmdk.com/logger/v2
 
 go 1.23.4
 
