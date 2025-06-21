@@ -1,16 +1,27 @@
 package logger
 
+import "encoding/json"
+
 // Logger should init itself from a json configuration
 type Configuration struct {
-	UseConsole   bool
-	UseNATS      bool
-	NatsURL      string
-	NatsUsername string
-	NatsPassword string
+	UseConsole   bool   `json:"use_console"`
+	UseNATS      bool   `json:"use_nats"`
+	NatsURL      string `json:"nats_url"`
+	NatsUsername string `json:"nats_username"`
+	NatsPassword string `json:"nats_password"`
 }
 
 func NewConfiguration() *Configuration {
 	return &Configuration{}
+}
+
+func FromJsonString(jsonString string) (*Configuration, error) {
+	var config Configuration
+	err := json.Unmarshal([]byte(jsonString), &config) // Note the & operator here
+	if err != nil {
+		return nil, err
+	}
+	return &config, nil
 }
 
 func (c *Configuration) Init() *MultiLogger {

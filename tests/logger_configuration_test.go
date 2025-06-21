@@ -1,9 +1,11 @@
 package tests
 
 import (
-	"github.com/CoreKitMDK/corekit-service-logger/v2/pkg/logger"
+	"encoding/json"
 	"testing"
 	"time"
+
+	"github.com/CoreKitMDK/corekit-service-logger/v2/pkg/logger"
 )
 
 func TestLoggerConfiguration(t *testing.T) {
@@ -17,6 +19,12 @@ func TestLoggerConfiguration(t *testing.T) {
 
 	config.NatsPassword = "internal-logger-broker"
 	config.NatsUsername = "internal-logger-broker"
+
+	marshal, err := json.Marshal(config)
+	if err != nil {
+		return
+	}
+	println(string(marshal))
 
 	ogger := config.Init()
 	defer ogger.Stop()
