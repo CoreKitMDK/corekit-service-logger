@@ -15,7 +15,7 @@ func TestLoggerConfiguration(t *testing.T) {
 	config.UseConsole = true
 
 	config.UseNATS = true
-	config.NatsURL = "nats://localhost:4222"
+	config.NatsURL = "nats://internal-logger-broker-nats:4222"
 
 	config.NatsPassword = "internal-logger-broker"
 	config.NatsUsername = "internal-logger-broker"

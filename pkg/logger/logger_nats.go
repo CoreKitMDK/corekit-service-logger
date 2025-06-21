@@ -44,7 +44,7 @@ func WithCredentials(username, password string) NATSOption {
 func NewLoggerNATS(url string, minLogLevel Level, options ...NATSOption) (*NATS, error) {
 	logger := &NATS{
 		minLogLevel: minLogLevel,
-		subject:     "logger",                 // Default subject
+		subject:     "logs",                   // Default subject
 		clientID:    "internal-logger-broker", // Default client ID
 	}
 
@@ -70,8 +70,8 @@ func NewLoggerNATS(url string, minLogLevel Level, options ...NATSOption) (*NATS,
 func NewLoggerNATSWithAuth(url string, username, password string, minLogLevel Level, options ...NATSOption) (*NATS, error) {
 	logger := &NATS{
 		minLogLevel: minLogLevel,
-		subject:     "logs",        // Default subject
-		clientID:    "nats-logger", // Default client ID
+		subject:     "logs",                   // Default subject
+		clientID:    "internal-logger-broker", // Default client ID
 	}
 
 	for _, opt := range options {
