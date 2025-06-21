@@ -106,7 +106,17 @@ func (ln *NATS) Log(level Level, message string) error {
 		return fmt.Errorf("NATS connection is closed or not initialized")
 	}
 
-	return ln.conn.Publish(ln.subject, []byte(message))
+	err := ln.conn.Publish(ln.subject, []byte(message))
+	if err != nil {
+		return err
+	}
+
+	err = ln.conn.Flush()
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func (ln *NATS) ShouldLogLevel(level Level) bool {
