@@ -27,7 +27,12 @@ data:
     # Cluster configuration
     cluster {
       port: 6222
-      name: "internal-logger-broker-nats-cluster"
+      name: "internal-logger-broker-nats-cluster",
+      #routes = [
+      #  "nats://internal-logger-broker:internal-logger-broker@internal-logger-broker-nats-0.internal-logger-broker-nats:6222",
+      #  "nats://internal-logger-broker:internal-logger-broker@internal-logger-broker-nats-1.internal-logger-broker-nats:6222",
+      #  "nats://internal-logger-broker:internal-logger-broker@internal-logger-broker-nats-2.internal-logger-broker-nats:6222"
+      #]
     }
 ---
 apiVersion: apps/v1
@@ -41,7 +46,8 @@ spec:
     matchLabels:
       app: internal-logger-broker-nats
   serviceName: "internal-logger-broker-nats"
-  replicas: 3
+  replicas: 1
+  podManagementPolicy: Parallel
   template:
     metadata:
       labels:

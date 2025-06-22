@@ -3,11 +3,12 @@ package logger
 import (
 	"context"
 	"fmt"
-	"github.com/CoreKitMDK/corekit-service-logger/v2/internal/logger"
 	"os"
 	"runtime"
 	"strings"
 	"time"
+
+	"github.com/CoreKitMDK/corekit-service-logger/v2/internal/logger"
 )
 
 var Logger IMultiLogger = NewLogger(100, NewLoggerConsole(DEBUG))
